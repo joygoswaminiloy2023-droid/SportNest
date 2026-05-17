@@ -1,10 +1,15 @@
+'use client'
 import React from 'react';
 import { Search, Menu, Calendar, PlusSquare, Settings, LogOut } from "lucide-react";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Nav = () => {
-  const isLoggedIn = false; 
+  const isLoggedIn = true; 
+  const pathname = usePathname();
 
   return (
+    
     <div className="border-b border-gray-800 bg-[#0b121f] text-white sticky top-0 z-50">
       <div className="navbar max-w-7xl mx-auto px-4 md:px-6 h-16">
         
@@ -15,14 +20,14 @@ const Nav = () => {
               <Menu size={22} />
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-2xl bg-[#0b121f] border border-gray-800 rounded-2xl w-64 gap-2">
-              <li><a className="text-cyan-400 font-medium">Home</a></li>
-              <li><a className="text-gray-300">All Facilities</a></li>
+              <li><Link href="/" className={pathname === "/" ? "text-cyan-400 font-medium" : "text-gray-300"}>Home</Link></li>
+              <li><Link href="/All-Facilities" className={pathname === "/All-Facilities" ? "text-cyan-400 font-medium" : "text-gray-300"}>All Facilities</Link></li>
               {isLoggedIn && (
                 <>
                   <div className="divider my-1 border-gray-800"></div>
-                  <li><a className="text-gray-300 gap-2"><Calendar size={16}/> My Bookings</a></li>
-                  <li><a className="text-gray-300 gap-2"><PlusSquare size={16}/> Add Facility</a></li>
-                  <li><a className="text-gray-300 gap-2"><Settings size={16}/> Manage My Facilities</a></li>
+                  <li><Link href="/My-Bookings" className={pathname === "/My-Bookings" ? "text-cyan-400 font-medium" : "text-gray-300"}><Calendar size={16}/> My Bookings</Link></li>
+                  <Link href="/Add-Facilities" className={pathname === "/Add-Facilities" ? "text-cyan-400 font-medium" : "text-gray-300"}> <li><PlusSquare size={16}/> Add Facility</li></Link>
+                  <li><Link href="/Manage-Facilities" className={pathname === "/Manage-Facilities" ? "text-cyan-400 font-medium" : "text-gray-300"}><Settings size={16}/> Manage My Facilities</Link></li>
                 </>
               )}
             </ul>
@@ -42,16 +47,16 @@ const Nav = () => {
         <div className="navbar-center hidden sm:flex">
           <ul className="menu menu-horizontal px-1 gap-1 font-medium">
             <li>
-              <a className="text-cyan-400 active:bg-transparent focus:bg-transparent relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400">
+              <Link href="/" className={pathname === "/" ? "text-cyan-400 active:bg-transparent focus:bg-transparent relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>
                 Home
-              </a>
+              </Link>
             </li>
-            <li><a className="text-gray-300 hover:text-white transition-colors">All Facilities</a></li>
+            <li><Link href="/All-Facilities" className={pathname === "/All-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>All Facilities</Link></li>
             {isLoggedIn && (
               <>
-                <li><a className="text-gray-300 hover:text-white transition-colors">My Bookings</a></li>
-                <li><a className="text-gray-300 hover:text-white transition-colors">Add Facility</a></li>
-                <li><a className="text-gray-300 hover:text-white transition-colors">Manage My Facilities</a></li>
+                <li><Link href="/My-Bookings" className={pathname === "/My-Bookings" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>My Bookings</Link></li>
+                <li><Link href="/Add-Facilities" className={pathname === "/Add-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>Add Facility</Link></li>
+                <li><Link href="/Manage-Facilities" className={pathname === "/Manage-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>Manage My Facilities</Link></li>
               </>
             )}
           </ul>
@@ -80,9 +85,9 @@ const Nav = () => {
                   <p className="text-xs text-gray-500 font-medium p-0">Signed in as</p>
                   <p className="text-sm text-cyan-400 font-semibold p-0 truncate">player@sportnest.com</p>
                 </li>
-                <li><a className="py-2 gap-2"><Calendar size={16} className="text-gray-400" /> My Bookings</a></li>
-                <li><a className="py-2 gap-2"><PlusSquare size={16} className="text-gray-400" /> Add Facility</a></li>
-                <li><a className="py-2 gap-2"><Settings size={16} className="text-gray-400" /> Manage My Facilities</a></li>
+                <li><Link href="/My-Bookings" className={pathname === "/My-Bookings" ? "py-2 gap-2 text-cyan-400" : "py-2 gap-2"}><Calendar size={16} className="text-gray-400" /> My Bookings</Link></li>
+                <li><Link href="/Add-Facilities" className={pathname === "/Add-Facilities" ? "py-2 gap-2 text-cyan-400" : "py-2 gap-2"}><PlusSquare size={16} className="text-gray-400" /> Add Facility</Link></li>
+                <li><Link href="/Manage-Facilities" className={pathname === "/Manage-Facilities" ? "py-2 gap-2 text-cyan-400" : "py-2 gap-2"}><Settings size={16} className="text-gray-400" /> Manage My Facilities</Link></li>
                 <div className="divider my-1 border-gray-800"></div>
                 <li>
                   <a className="py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 gap-2">
