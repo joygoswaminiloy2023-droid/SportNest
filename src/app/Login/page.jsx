@@ -193,7 +193,7 @@ const Login = () => {
           <p className="text-center text-gray-500 text-sm mt-10">
             New here?{' '}
             <Link
-              href="/signup"
+              href="/Signup"
               className="text-cyan-400 font-bold hover:text-cyan-300 transition-all"
             >
               Join the Nest

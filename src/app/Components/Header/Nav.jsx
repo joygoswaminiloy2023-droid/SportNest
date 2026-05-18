@@ -2,17 +2,34 @@
 import React from 'react';
 import { Search, Menu, Calendar, PlusSquare, Settings, LogOut } from "lucide-react";
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { authClient } from '@/lib/auth-client';
+import { Button } from '@heroui/react';
+import Image from 'next/image';
+
 
 const Nav = () => {
 
-  
-  
-  const isLoggedIn = true;
-
   const pathname = usePathname();
+    const router = useRouter();
+
+ 
+  const { 
+    data: session, 
+    isPending 
+  } = authClient.useSession()
+    
+  const User = session?.user
+  console.log(User)
+
+    
+  const isLoggedIn=User;
+  
+  const handleLogout = async () => {
+   await authClient.signOut();
+  }
+
 
   return (
     
@@ -31,8 +48,8 @@ const Nav = () => {
               {isLoggedIn && (
                 <>
                   <div className="divider my-1 border-gray-800"></div>
-                  <li><Link href="/My-Bookings" className={pathname === "/My-Bookings" ? "text-cyan-400 font-medium" : "text-gray-300"}><Calendar size={16}/> My Bookings</Link></li>
-                  <Link href="/Add-Facilities" className={pathname === "/Add-Facilities" ? "text-cyan-400 font-medium" : "text-gray-300"}> <li><PlusSquare size={16}/> Add Facility</li></Link>
+                  <li><Link href="/My-bookings" className={pathname === "/My-bookings" ? "text-cyan-400 font-medium" : "text-gray-300"}><Calendar size={16}/> My Bookings</Link></li>
+                   <li><Link href="/Add-Facilities" className={pathname === "/Add-Facilities" ? "py-2 gap-2 text-cyan-400" : "py-2 gap-2"}><PlusSquare size={16} className="text-gray-400" /> Add Facility</Link></li>
                   <li><Link href="/Manage-Facilities" className={pathname === "/Manage-Facilities" ? "text-cyan-400 font-medium" : "text-gray-300"}><Settings size={16}/> Manage My Facilities</Link></li>
                 </>
               )}
@@ -60,7 +77,7 @@ const Nav = () => {
             <li><Link href="/All-Facilities" className={pathname === "/All-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>All Facilities</Link></li>
             {isLoggedIn && (
               <>
-                <li><Link href="/My-Bookings" className={pathname === "/My-Bookings" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>My Bookings</Link></li>
+                <li><Link href="/My-bookings" className={pathname === "/My-bookings" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>My Bookings</Link></li>
                 <li><Link href="/Add-Facilities" className={pathname === "/Add-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>Add Facility</Link></li>
                 <li><Link href="/Manage-Facilities" className={pathname === "/Manage-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>Manage My Facilities</Link></li>
               </>
@@ -85,22 +102,22 @@ const Nav = () => {
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar ring-2 ring-cyan-400 focus:outline-none">
                 <div className="w-9 rounded-full">
-                  <img alt="Profile" src="https://i.pravatar.cc/150?u=sportnest" />
+                  <Image width={400} height={400} alt="Profile" src={User?.image||"https://static.vecteezy.com/system/resources/thumbnails/048/216/761/small/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png"} />
                 </div>
               </div>
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-2xl bg-[#111827] border border-gray-800 rounded-xl w-60 text-gray-200">
                 <li className="px-3 py-2 border-b border-gray-800 pointer-events-none mb-1">
                   <p className="text-xs text-gray-500 font-medium p-0">Signed in as</p>
-                  <p className="text-sm text-cyan-400 font-semibold p-0 truncate">player@sportnest.com</p>
+                  <p className="text-sm text-cyan-400 font-semibold p-0 truncate">{User.name}</p>
                 </li>
-                <li><Link href="/My-Bookings" className={pathname === "/My-Bookings" ? "py-2 gap-2 text-cyan-400" : "py-2 gap-2"}><Calendar size={16} className="text-gray-400" /> My Bookings</Link></li>
+                <li><Link href="/My-bookings" className={pathname === "/My-bookings" ? "py-2 gap-2 text-cyan-400" : "py-2 gap-2"}><Calendar size={16} className="text-gray-400" /> My Bookings</Link></li>
                 <li><Link href="/Add-Facilities" className={pathname === "/Add-Facilities" ? "py-2 gap-2 text-cyan-400" : "py-2 gap-2"}><PlusSquare size={16} className="text-gray-400" /> Add Facility</Link></li>
                 <li><Link href="/Manage-Facilities" className={pathname === "/Manage-Facilities" ? "py-2 gap-2 text-cyan-400" : "py-2 gap-2"}><Settings size={16} className="text-gray-400" /> Manage My Facilities</Link></li>
                 <div className="divider my-1 border-gray-800"></div>
                 <li>
-                  <a className="py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 gap-2">
+                  <Button onClick={handleLogout} className="py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 gap-2">
                     <LogOut size={16} /> Log Out
-                  </a>
+                  </Button>
                 </li>
               </ul>
             </div>
