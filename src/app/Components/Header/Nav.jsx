@@ -3,6 +3,7 @@ import React from 'react';
 import { Search, Menu, Calendar, PlusSquare, Settings, LogOut } from "lucide-react";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { FiMoon, FiSun } from 'react-icons/fi';
 
 const Nav = () => {
   const isLoggedIn = true; 
@@ -13,7 +14,7 @@ const Nav = () => {
     <div className="border-b border-gray-800 bg-[#0b121f] text-white sticky top-0 z-50">
       <div className="navbar max-w-7xl mx-auto px-4 md:px-6 h-16">
         
-        {/* --- LEFT: Mobile Drawer & Logo --- */}
+      
         <div className="navbar-start gap-2">
           <div className="dropdown sm:hidden">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle text-white">
@@ -43,7 +44,7 @@ const Nav = () => {
           </div>
         </div>
 
-        {/* --- CENTER: Desktop Navigation Links --- */}
+
         <div className="navbar-center hidden sm:flex">
           <ul className="menu menu-horizontal px-1 gap-1 font-medium">
             <li>
@@ -62,16 +63,18 @@ const Nav = () => {
           </ul>
         </div>
 
-        {/* --- RIGHT: Search Bar & Profile/Login --- */}
+        
         <div className="navbar-end gap-4">
-          <div className="relative hidden lg:block w-56">
-            <input 
-              type="text" 
-              placeholder="Search for courts..." 
-              className="input input-sm w-full rounded-full bg-slate-900/80 border border-gray-700 text-white placeholder:text-gray-500 text-xs pl-9 focus:outline-none focus:border-cyan-500"
-            />
-            <Search size={14} className="absolute left-3 top-2.5 text-gray-500" />
-          </div>
+        <label className="swap swap-rotate btn btn-ghost btn-circle bg-slate-900/80 border border-gray-700 hover:border-cyan-500 transition-colors">
+     
+      <input type="checkbox" className="theme-controller" value="light" />
+
+     
+      <FiSun className="swap-on fill-current w-5 h-5 text-yellow-400" />
+
+    
+      <FiMoon className="swap-off fill-current w-5 h-5 text-cyan-400" />
+    </label>
 
           {isLoggedIn ? (
             <div className="dropdown dropdown-end">
