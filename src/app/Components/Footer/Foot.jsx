@@ -6,16 +6,16 @@ import { SiInstagram, SiX, SiYoutube } from 'react-icons/si';
 const Foot = () => {
     return (
      <footer className="relative bg-base-900 border-t border-base-300 dark:border-neutral-800 text-base-content mt-20">
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-500" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-cyan-500 to-blue-500" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 p-10 pt-14">
         
         <div className="lg:col-span-2 space-y-5">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+            <div className="w-9 h-9 rounded-xl bg-linear-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
               S
             </div>
-            <span className="text-xl font-black tracking-wider bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-xl font-black tracking-wider bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
               SPORTNEST
             </span>
           </div>
@@ -41,7 +41,7 @@ const Foot = () => {
                 href="https://instagram.com" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="w-9 h-9 rounded-xl bg-base-300 dark:bg-neutral-800 flex items-center justify-center text-base-content hover:bg-gradient-to-tr hover:from-yellow-500 hover:to-purple-600 hover:text-white transition-all duration-300 shadow-sm transform hover:-translate-y-0.5"
+                className="w-9 h-9 rounded-xl bg-base-300 dark:bg-neutral-800 flex items-center justify-center text-base-content hover:bg-linear-to-tr hover:from-yellow-500 hover:to-purple-600 hover:text-white transition-all duration-300 shadow-sm transform hover:-translate-y-0.5"
                 aria-label="Instagram"
               >
                 <SiInstagram className="text-base" />
@@ -61,7 +61,7 @@ const Foot = () => {
         </div>
 
         <div>
-          <h6 className="footer-title text-sm font-bold tracking-widest text-base-content opacity-90 mb-4 after:content-[''] after:block after:w-8 after:h-[2px] after:bg-cyan-500 after:mt-1">
+          <h6 className="footer-title text-sm font-bold tracking-widest text-base-content opacity-90 mb-4 after:content-[''] after:block after:w-8 after:h-0.5 after:bg-cyan-500 after:mt-1">
             Explore Arenas
           </h6>
           <div className="flex flex-col gap-2.5 text-sm">
@@ -73,7 +73,7 @@ const Foot = () => {
         </div>
 
         <div>
-          <h6 className="footer-title text-sm font-bold tracking-widest text-base-content opacity-90 mb-4 after:content-[''] after:block after:w-8 after:h-[2px] after:bg-cyan-500 after:mt-1">
+          <h6 className="footer-title text-sm font-bold tracking-widest text-base-content opacity-90 mb-4 after:content-[''] after:block after:w-8 after:h-0.5 after:bg-cyan-500 after:mt-1">
             Partnership
           </h6>
           <div className="flex flex-col gap-2.5 text-sm">
@@ -85,7 +85,7 @@ const Foot = () => {
         </div>
 
         <div>
-          <h6 className="footer-title text-sm font-bold tracking-widest text-base-content opacity-90 mb-4 after:content-[''] after:block after:w-8 after:h-[2px] after:bg-blue-500 after:mt-1">
+          <h6 className="footer-title text-sm font-bold tracking-widest text-base-content opacity-90 mb-4 after:content-[''] after:block after:w-8 after:h-0.5 after:bg-blue-500 after:mt-1">
             Support Desk
           </h6>
           <div className="flex flex-col gap-3 text-xs text-neutral-content/80">

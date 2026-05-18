@@ -21,13 +21,14 @@ const Nav = () => {
   } = authClient.useSession()
     
   const User = session?.user
-  console.log(User)
+
 
     
   const isLoggedIn=User;
   
   const handleLogout = async () => {
    await authClient.signOut();
+   router.push('/Login')
   }
 
 
@@ -42,7 +43,7 @@ const Nav = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle text-white">
               <Menu size={22} />
             </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-2xl bg-[#0b121f] border border-gray-800 rounded-2xl w-64 gap-2">
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-1 p-3 shadow-2xl bg-[#0b121f] border border-gray-800 rounded-2xl w-64 gap-2">
               <li><Link href="/" className={pathname === "/" ? "text-cyan-400 font-medium" : "text-gray-300"}>Home</Link></li>
               <li><Link href="/All-Facilities" className={pathname === "/All-Facilities" ? "text-cyan-400 font-medium" : "text-gray-300"}>All Facilities</Link></li>
               {isLoggedIn && (
@@ -57,7 +58,7 @@ const Nav = () => {
           </div>
 
           <div className="flex items-center gap-2 cursor-pointer select-none">
-            <div className="w-8 h-8 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+            <div className="w-8 h-8 bg-linear-to-tr from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.5)]">
               <span className="font-black text-xs text-white">SN</span>
             </div>
             <p className="font-bold tracking-wider text-lg hidden sm:block">
@@ -70,16 +71,16 @@ const Nav = () => {
         <div className="navbar-center hidden sm:flex">
           <ul className="menu menu-horizontal px-1 gap-1 font-medium">
             <li>
-              <Link href="/" className={pathname === "/" ? "text-cyan-400 active:bg-transparent focus:bg-transparent relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>
+              <Link href="/" className={pathname === "/" ? "text-cyan-400 active:bg-transparent focus:bg-transparent relative after:content-[''] after:absolute after:-bottom-4.5 after:left-3 after:right-3 after:h-0.5 after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>
                 Home
               </Link>
             </li>
-            <li><Link href="/All-Facilities" className={pathname === "/All-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>All Facilities</Link></li>
+            <li><Link href="/All-Facilities" className={pathname === "/All-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:-bottom-4.5 after:left-3 after:right-3 after:h-0.5 after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>All Facilities</Link></li>
             {isLoggedIn && (
               <>
-                <li><Link href="/My-bookings" className={pathname === "/My-bookings" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>My Bookings</Link></li>
-                <li><Link href="/Add-Facilities" className={pathname === "/Add-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>Add Facility</Link></li>
-                <li><Link href="/Manage-Facilities" className={pathname === "/Manage-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:bottom-[-18px] after:left-3 after:right-3 after:h-[2px] after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>Manage My Facilities</Link></li>
+                <li><Link href="/My-bookings" className={pathname === "/My-bookings" ? "text-cyan-400 relative after:content-[''] after:absolute after:-bottom-4.5 after:left-3 after:right-3 after:h-0.5 after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>My Bookings</Link></li>
+                <li><Link href="/Add-Facilities" className={pathname === "/Add-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:-bottom-4.5 after:left-3 after:right-3 after:h-0.5 after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>Add Facility</Link></li>
+                <li><Link href="/Manage-Facilities" className={pathname === "/Manage-Facilities" ? "text-cyan-400 relative after:content-[''] after:absolute after:-bottom-4.5 after:left-3 after:right-3 after:h-0.5 after:bg-cyan-400" : "text-gray-300 hover:text-white transition-colors"}>Manage My Facilities</Link></li>
               </>
             )}
           </ul>
@@ -105,7 +106,7 @@ const Nav = () => {
                   <Image width={400} height={400} alt="Profile" src={User?.image||"https://static.vecteezy.com/system/resources/thumbnails/048/216/761/small/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png"} />
                 </div>
               </div>
-              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-2xl bg-[#111827] border border-gray-800 rounded-xl w-60 text-gray-200">
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow-2xl bg-[#111827] border border-gray-800 rounded-xl w-60 text-gray-200">
                 <li className="px-3 py-2 border-b border-gray-800 pointer-events-none mb-1">
                   <p className="text-xs text-gray-500 font-medium p-0">Signed in as</p>
                   <p className="text-sm text-cyan-400 font-semibold p-0 truncate">{User.name}</p>
@@ -123,7 +124,7 @@ const Nav = () => {
             </div>
           ) : (
             <Link href='/Login'>
-              <button className="btn btn-sm px-5 h-9 min-h-0 border-none rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 text-slate-950 font-bold tracking-wide shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+              <button className="btn btn-sm px-5 h-9 min-h-0 border-none rounded-full bg-linear-to-r from-cyan-400 to-teal-400 text-slate-950 font-bold tracking-wide shadow-[0_0_20px_rgba(34,211,238,0.4)]">
               Login
             </button>
             </Link>

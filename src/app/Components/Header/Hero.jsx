@@ -25,12 +25,12 @@ const Hero = () => {
         <div className="absolute inset-0 bg-[#070d19]/55"></div>
 
         {/* SOFT EDGE FADE ONLY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070d19]/80 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-[#070d19]/80 via-transparent to-transparent"></div>
       </div>
 
       {/* ================= GLOWS ================= */}
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-cyan-500/15 blur-[140px] rounded-full z-10"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 blur-[140px] rounded-full z-10"></div>
+      <div className="absolute top-1/4 left-1/3 w-125 h-125 bg-cyan-500/15 blur-[140px] rounded-full z-10"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-125 h-125 bg-blue-500/10 blur-[140px] rounded-full z-10"></div>
 
       {/* ================= CONTENT ================= */}
       <div className="relative z-20 container  mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center px-6 lg:px-12">
@@ -41,7 +41,7 @@ const Hero = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight text-white">
             Discover & Book <br />
 
-            <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">
               Premium Sports
             </span>
 

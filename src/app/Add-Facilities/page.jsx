@@ -1,5 +1,6 @@
 'use client'
 
+import { authClient } from "@/lib/auth-client";
 import {
   FieldError,
   Input,
@@ -19,10 +20,10 @@ const addFacilities = () => {
   const router = useRouter();
 
 
- 
-  const ownerEmail = typeof window !== "undefined" 
-    ? localStorage.getItem("userEmail") || "owner@sportnest.com" 
-    : "owner@sportnest.com";
+
+  const { data: session, isPending } = authClient.useSession();
+  
+  const ownerEmail = session?.user?.email || "owner@sportnest.com";
 
   const onSubmit = async (e) => {
     e.preventDefault();

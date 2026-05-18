@@ -65,16 +65,16 @@ const Login = () => {
     <div className="min-h-screen bg-[#0b0f14] flex items-center justify-center px-6 py-10 overflow-hidden relative">
 
       {/* Background Glow */}
-      <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-cyan-500/10 blur-[140px]" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[140px]" />
+      <div className="absolute top-[-10%] left-[-10%] w-100 h-100 rounded-full bg-cyan-500/10 blur-[140px]" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-100 h-100 rounded-full bg-blue-500/10 blur-[140px]" />
 
       {/* Card */}
       <div className="relative w-full max-w-md">
 
         {/* Border Glow */}
-        <div className="absolute -inset-[1px] rounded-[32px] bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 opacity-30 blur-lg" />
+        <div className="absolute -inset-px rounded-4xl bg-linear-to-r from-cyan-500 via-blue-500 to-cyan-500 opacity-30 blur-lg" />
 
-        <div className="relative bg-[#131920]/90 backdrop-blur-2xl rounded-[32px] border border-white/5 shadow-2xl p-8 md:p-10">
+        <div className="relative bg-[#131920]/90 backdrop-blur-2xl rounded-4xl border border-white/5 shadow-2xl p-8 md:p-10">
 
           {/* Logo */}
           <div className="text-center mb-10">
