@@ -15,5 +15,5 @@ if(!session){
  
 
 export const config = {
-  matcher:['/My-bookings','/Add-Facilities','/Manage-Facilities'],
+  matcher:['/All-Facilities/:path','/My-bookings','/Add-Facilities','/Manage-Facilities'],
 }
