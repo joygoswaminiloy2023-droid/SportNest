@@ -6,8 +6,10 @@ import Marquee from "react-fast-marquee";
 import { toast } from "react-toastify";
 import { authClient } from "@/lib/auth-client";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
 
-const FacilityDetailsCard = ({ data = {} }) => {
+const FacilityDetailsCard = ({ data}) => {
+const router=useRouter()
   const {
     _id,
     facilityName,
@@ -88,6 +90,7 @@ user_email: user?.email,
 
       if (result?.acknowledged ) {
         toast.success("Booking successful!");
+        router.push('/My-bookings')
       } else {
         toast.error("Booking failed!");
       }
