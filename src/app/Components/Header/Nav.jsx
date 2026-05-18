@@ -4,9 +4,14 @@ import { Search, Menu, Calendar, PlusSquare, Settings, LogOut } from "lucide-rea
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FiMoon, FiSun } from 'react-icons/fi';
+import { authClient } from '@/lib/auth-client';
 
 const Nav = () => {
-  const isLoggedIn = true; 
+
+  
+  
+  const isLoggedIn = true;
+
   const pathname = usePathname();
 
   return (
@@ -69,7 +74,7 @@ const Nav = () => {
      
       <input type="checkbox" className="theme-controller" value="light" />
 
-     
+      {/* sun icon */}
       <FiSun className="swap-on fill-current w-5 h-5 text-yellow-400" />
 
     
@@ -100,9 +105,11 @@ const Nav = () => {
               </ul>
             </div>
           ) : (
-            <button className="btn btn-sm px-5 h-9 min-h-0 border-none rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 text-slate-950 font-bold tracking-wide shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+            <Link href='/Login'>
+              <button className="btn btn-sm px-5 h-9 min-h-0 border-none rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 text-slate-950 font-bold tracking-wide shadow-[0_0_20px_rgba(34,211,238,0.4)]">
               Login
             </button>
+            </Link>
           )}
         </div>
 
