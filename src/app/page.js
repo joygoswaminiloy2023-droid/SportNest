@@ -2,6 +2,7 @@ import Image from "next/image";
 import Hero from "./Components/Header/Hero";
 import Cardfacility from "./Components/Header/Card.jsx/Cardfacility";
 import Foot from "./Components/Footer/Foot";
+import WhyChooseUs from "./Components/Features/WhyChooseUs";
 
 export default async function Home() {
   const res = await fetch('http://localhost:5000/facility',{cache:"no-cache"});
@@ -24,6 +25,7 @@ export default async function Home() {
       </div>
       </div>
 
+<WhyChooseUs></WhyChooseUs>
       <Foot></Foot>
     </>
   );
