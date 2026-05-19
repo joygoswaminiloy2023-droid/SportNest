@@ -39,7 +39,7 @@ const router=useRouter()
   const [selectedSlot, setSelectedSlot] = useState("");
   const [hours, setHours] = useState(1);
 
-  const totalPrice = Number(pricePerHour || 0) * hours;
+  const totalPrice = Number(pricePerHour) * hours;
 
   const handleBookingSubmit = async (e) => {
     e.preventDefault();

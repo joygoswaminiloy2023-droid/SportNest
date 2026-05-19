@@ -1,93 +1,99 @@
 'use client'
 import { AlertDialog, Button } from '@heroui/react';
-
-import { Edit, Eye, Trash2 } from 'lucide-react';
+import { EyeIcon, Trash2 } from 'lucide-react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-
 import React from 'react';
 import { FaTriangleExclamation } from 'react-icons/fa6';
 
-const BookingButtons = ({booking}) => {
-    const route=useRouter()
+const BookingButtons = ({ booking }) => {
+    const route = useRouter();
 
-    const handlebooking_del=async(id)=>{
-const res=await fetch(`http://localhost:5000/bookings/${booking._id}`,{
-    method:"DELETE",
-    headers:{
-        'content-type': 'application/json'
-    },
-})
-const data= await res.json();
-route.refresh()
-    }
-    
+    const handlebooking_del = async () => {
+        try {
+            const res = await fetch(`http://localhost:5000/bookings/${booking._id}`, {
+                method: "DELETE",
+                headers: {
+                    'content-type': 'application/json'
+                },
+            });
+            
+            // Safe verification check before updating UI context
+            if (res.ok) {
+                route.refresh();
+            }
+        } catch (error) {
+            console.error("Error canceling booking:", error);
+        }
+    };
+
     return (
-  <div className="mt-6 pt-6 border-t border-gray-50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          
+        <div className="mt-6 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center space-x-3 w-full sm:w-auto">
+                
+                {/* MATCHED DELETE ALERT MODAL */}
                 <AlertDialog>
                     {/* Trigger Button */}
-                    <Button 
-                        variant="light" 
-                        className="text-red-500 border border-red-200 flex gap-2 items-center justify-center hover:bg-red-50 px-4 py-2 rounded-md h-auto min-w-0"
+                    <Button
+                        variant="light"
+                        className="text-red-400 border border-red-950/40 hover:bg-red-950/30 font-medium px-4 py-2 rounded-xl flex gap-2"
                     >
-                        <Trash2 className="w-4 h-4 mr-1" />
+                        <Trash2 size={16} />
                         Cancel
                     </Button>
 
-                    {/* Centered Backdrop with the custom red gradient */}
-                    <AlertDialog.Backdrop
-                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-linear-to-t from-cyan-950/90 via-cyan-950/50 to-transparent dark:from-cyan-950/95 dark:via-cyan-950/60"
-                        variant="blur"
-                    >
+                    {/* Backdrop */}
+                    <AlertDialog.Backdrop className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-md">
                         <AlertDialog.Container>
-                            {/* FIX: Added bg-white and text colors to make content visible as seen in image_792798.png */}
-                            <AlertDialog.Dialog className="bg-black dark:bg-white rounded-2xl shadow-2xl p-8 sm:max-w-[440px] outline-none border border-gray-100">
-                                <AlertDialog.CloseTrigger className="text-black hover:text-gray-600" />
-                                
-                                <AlertDialog.Header className="flex flex-col items-center text-center gap-3">
-                                    <AlertDialog.Icon className="bg-red-50 p-3 rounded-full">
-                                        <FaTriangleExclamation className="size-6 text-red-600" />
-                                    </AlertDialog.Icon>
-                                    <AlertDialog.Heading className="text-2xl font-bold text-black dark:text-white">
+                            <AlertDialog.Dialog className="bg-slate-900 border border-slate-800 text-white rounded-2xl p-6 w-[400px]">
+
+                                <AlertDialog.Header className="text-center">
+                                    <FaTriangleExclamation className="text-red-500 text-4xl mx-auto" />
+
+                                    <AlertDialog.Heading className="text-xl font-bold mt-3">
                                         Cancel Booking?
                                     </AlertDialog.Heading>
                                 </AlertDialog.Header>
 
-                                <AlertDialog.Body className="py-6 text-center">
-                                    <p className="text-black dark:text-black  leading-relaxed">
-                                        This action cannot be undone. You are about to cancel your booking for 
-                                        <span className="font-bold text-gray-900 dark:text-white block mt-1">
-                                            {booking.des_name}
-                                        </span>
-                                    </p>
+                                <AlertDialog.Body className="text-center mt-3 text-slate-400 text-sm">
+                                    This action cannot be undone.
                                 </AlertDialog.Body>
 
-                                <AlertDialog.Footer className="flex flex-col gap-3">
-                                    <Button 
-                                        className="w-full font-bold h-12 text-white bg-red-600 hover:bg-red-700" 
+                                <div className="font-bold text-white text-center mt-2">
+                                    {booking.des_name || booking.facility_name}
+                                </div>
+
+                                <AlertDialog.Footer className="flex flex-col gap-2 mt-6">
+                                    <Button
+                                        color="danger"
+                                        className="bg-red-500 border-none p-0 min-w-0 h-auto shadow-none text-white hover:bg-red-600 hover:scale-95 duration-300 cursor-pointer font-medium transition-colors"
                                         onPress={handlebooking_del}
                                     >
-                                        Yes, Cancel Forever
+                                        Yes, Cancel Booking
                                     </Button>
+
                                     <Button 
-                                        className="w-full font-semibold text-gray-500 hover:text-gray-700 h-12" 
-                                        variant="light" 
-                                        slot="close"
-                                    >
-                                        No, Keep Booking
-                                    </Button>
+  variant="light" 
+  slot="close" 
+  className="bg-white border-none p-0 min-w-0 h-auto shadow-none text-black hover:text-cyan-500 hover:scale-95 duration-300 cursor-pointer font-medium transition-colors"
+>
+  Cancel
+</Button>
                                 </AlertDialog.Footer>
+
                             </AlertDialog.Dialog>
                         </AlertDialog.Container>
                     </AlertDialog.Backdrop>
                 </AlertDialog>
 
                 {/* View Button */}
-                <button className="flex items-center justify-center px-6 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition-all text-sm font-semibold h-[40px]">
-                    <Edit></Edit>
-                    Update
-                </button>
+                <Link 
+                    href={`/All-Facilities/${booking.facility_id}`} 
+                    className="flex items-center justify-center px-6 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition-all text-sm font-semibold h-[40px] gap-2"
+                >
+                    <EyeIcon size={16} />
+                    View
+                </Link>
             </div>
         </div>
     );

@@ -89,7 +89,8 @@ const MyFacilities = () => {
           </div>
 
           <Link href="/Add-Facilities">
-            <Button color="primary">
+            <Button color="primary"   className="bg-cyan-500 border-none p-0 min-w-0 h-auto shadow-none text-white hover:bg-cyan-400 rounded-lg px-2 hover:scale-95 duration-300 cursor-pointer font-medium transition-colors"
+>
               Add Facility
             </Button>
           </Link>

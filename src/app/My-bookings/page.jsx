@@ -139,7 +139,7 @@ const Mybookings = async () => {
 
               {/* ACTION */}
               <div className="mt-6">
-                <BookingButtons booking={booking} />
+                <BookingButtons booking={booking}  />
               </div>
 
             </div>

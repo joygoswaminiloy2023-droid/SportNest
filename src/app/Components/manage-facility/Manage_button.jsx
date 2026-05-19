@@ -74,7 +74,7 @@ const Manage_button = ({ facility, onDelete, setFacilities }) => {
 
         <AlertDialog.Backdrop className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-md">
           <AlertDialog.Container>
-            <AlertDialog.Dialog className="bg-slate-900 border border-slate-800 text-white rounded-2xl p-6 w-[400px]">
+            <AlertDialog.Dialog className="bg-slate-900 border border-slate-800 text-white rounded-2xl p-6 w-100">
 
               <AlertDialog.Header className="text-center">
                 <FaTriangleExclamation className="text-red-500 text-4xl mx-auto" />
@@ -96,13 +96,17 @@ const Manage_button = ({ facility, onDelete, setFacilities }) => {
 
                 <Button
                   color="danger"
-                  className="w-full font-semibold"
+  className="bg-cyan-500 border-none p-0 min-w-0 h-auto shadow-none text-white hover:bg-cyan-400 rounded-lg px-2 hover:scale-95 duration-300 cursor-pointer font-medium transition-colors"
+
                   onPress={handleDeleteClick}
                 >
                   Yes, Delete Listing
                 </Button>
 
-                <Button variant="light" slot="close">
+                <Button  variant="light"   
+                  className="bg-cyan-500 border-none p-0 min-w-0 h-auto shadow-none text-white hover:bg-cyan-400 rounded-lg px-2 hover:scale-95 duration-300 cursor-pointer font-medium transition-colors"
+
+ slot="close">
                   Cancel
                 </Button>
 
@@ -115,7 +119,7 @@ const Manage_button = ({ facility, onDelete, setFacilities }) => {
 
       {/* EDIT BUTTON (UNCHANGED STYLE) */}
       <Button
-        className="flex gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold px-5 py-2 rounded-xl"
+        className="flex gap-2 bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold px-5 py-2 rounded-xl"
         onPress={() => setIsEditOpen(true)}
       >
         <Edit size={16} />
@@ -189,13 +193,21 @@ const Manage_button = ({ facility, onDelete, setFacilities }) => {
             {/* BUTTONS */}
             <div className="flex gap-2">
 
-              <Button color="primary" onPress={handleUpdate}>
-                Save Changes
-              </Button>
+            <Button 
+  color="primary" 
+  onPress={handleUpdate}
+  className="bg-cyan-500 border-none p-0 min-w-0 h-auto shadow-none text-white hover:bg-cyan-400 rounded-lg px-2 hover:scale-95 duration-300 cursor-pointer font-medium transition-colors"
+>
+  Save Changes
+</Button>
 
-              <Button variant="light" onPress={() => setIsEditOpen(false)}>
-                Cancel
-              </Button>
+<Button 
+  variant="light" 
+  onPress={() => setIsEditOpen(false)}
+  className="bg-cyan-500 border-none p-0 min-w-0 h-auto shadow-none text-white hover:bg-cyan-400 rounded-lg px-2 hover:scale-95 duration-300 cursor-pointer font-medium transition-colors"
+>
+  Cancel
+</Button>
 
             </div>
 
