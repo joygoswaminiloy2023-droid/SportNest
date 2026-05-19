@@ -58,7 +58,7 @@ const WhyChooseUs = () => {
         </p>
       </div>
 
-      {/* Cards */}
+      
       <div className="max-w-7xl mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         
         {features.map((item, index) => (
@@ -66,17 +66,17 @@ const WhyChooseUs = () => {
             key={index}
             className="group bg-[#1a1d23] border border-gray-800 rounded-2xl p-6 hover:border-cyan-500 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-cyan-500/10"
           >
-            {/* Icon */}
+         
             <div className="text-3xl text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
               {item.icon}
             </div>
 
-            {/* Title */}
+           
             <h2 className="text-xl font-semibold mb-2">
               {item.title}
             </h2>
 
-            {/* Description */}
+           
             <p className="text-gray-400 text-sm leading-relaxed">
               {item.desc}
             </p>

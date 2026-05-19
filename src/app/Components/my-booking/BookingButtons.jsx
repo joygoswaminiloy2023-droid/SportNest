@@ -1,4 +1,5 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { AlertDialog, Button } from '@heroui/react';
 import { EyeIcon, Trash2 } from 'lucide-react';
 import Link from 'next/link';
@@ -10,11 +11,13 @@ const BookingButtons = ({ booking }) => {
     const route = useRouter();
 
     const handlebooking_del = async () => {
+        const{data: tokenData}=await authClient.token()
         try {
             const res = await fetch(`http://localhost:5000/bookings/${booking._id}`, {
                 method: "DELETE",
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    authorization:`Bearer ${tokenData?.token}`
                 },
             });
             

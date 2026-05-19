@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import React from "react";
 import BookingButtons from "../Components/my-booking/BookingButtons";
+import { authClient } from "@/lib/auth-client";
 
 const Mybookings = async () => {
   const session = await auth.api.getSession({
@@ -19,10 +20,18 @@ const Mybookings = async () => {
       </div>
     );
   }
+const  {token}=await auth.api.getToken({
+    headers:await headers()
+})
 
+console.log(token)
   const res = await fetch(
     `http://localhost:5000/bookings/${user.id}`,
-    { cache: "no-store" }
+    { cache: "no-store",
+     headers: {
+            authorization: `Bearer ${token}`
+        }
+    }
   );
 
   const data = await res.json();

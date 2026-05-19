@@ -1,7 +1,11 @@
+
 import React from 'react';
 import { FiBookmark, FiClock, FiMail } from 'react-icons/fi';
 import { IoLocationSharp } from 'react-icons/io5';
 import { SiInstagram, SiX, SiYoutube } from 'react-icons/si';
+import logo from '@/assets/logo.png'
+import Image from 'next/image';
+
 
 const Foot = () => {
     return (
@@ -12,9 +16,7 @@ const Foot = () => {
         
         <div className="lg:col-span-2 space-y-5">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-linear-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
-              S
-            </div>
+            <Image src={logo} width={40} height={40} alt="logo" />
             <span className="text-xl font-black tracking-wider bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
               SPORTNEST
             </span>

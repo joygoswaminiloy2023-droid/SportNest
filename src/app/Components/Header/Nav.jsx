@@ -7,6 +7,7 @@ import { FiMoon, FiSun } from 'react-icons/fi';
 import { authClient } from '@/lib/auth-client';
 import { Button } from '@heroui/react';
 import Image from 'next/image';
+import logo from '@/assets/logo.png'
 
 
 const Nav = () => {
@@ -57,14 +58,12 @@ const Nav = () => {
             </ul>
           </div>
 
-          <div className="flex items-center gap-2 cursor-pointer select-none">
-            <div className="w-8 h-8 bg-linear-to-tr from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.5)]">
-              <span className="font-black text-xs text-white">SN</span>
-            </div>
-            <p className="font-bold tracking-wider text-lg hidden sm:block">
-              SPORT<span className="text-cyan-400">NEST</span>
-            </p>
-          </div>
+        <div className="flex items-center gap-2 cursor-pointer select-none">
+  <Image src={logo} width={40} height={40} alt="logo" />
+  <p className="font-bold tracking-wider text-lg hidden sm:block">
+    SPORT<span className="text-cyan-400">NEST</span>
+  </p>
+</div>
         </div>
 
 

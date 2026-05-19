@@ -17,13 +17,41 @@ const Manage_button = ({ facility, onDelete, setFacilities }) => {
     capacity: facility?.capacity || "",
   });
 
-  // DELETE (same UI)
-  const handleDeleteClick = () => {
-    onDelete?.(facility._id);
-  };
 
-  // UPDATE (simple)
+const handleDeleteClick = async () => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const res = await fetch(
+      `http://localhost:5000/facility/${facility._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const data = await res.json();
+
+    if (res.ok) {
+      toast.success("Deleted successfully!");
+
+      setFacilities((prev) =>
+        prev.filter((item) => item._id !== facility._id)
+      );
+    } else {
+      toast.error(data.message || "Delete failed");
+    }
+  } catch (err) {
+    console.log(err);
+    toast.error("Something went wrong");
+  }
+};
+  
   const handleUpdate = async () => {
+        const token = localStorage.getItem("token");
+    
     try {
       const res = await fetch(
         `http://localhost:5000/facility/${facility._id}`,
@@ -31,6 +59,7 @@ const Manage_button = ({ facility, onDelete, setFacilities }) => {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(formData),
         }

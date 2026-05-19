@@ -39,11 +39,13 @@ const MyFacilities = () => {
 
   // DELETE
   const handleDelete = async (id) => {
+      const{data: tokenData}=await authClient.token()
     try {
       const res = await fetch(
         `http://localhost:5000/facility/${id}`,
         {
           method: "DELETE",
+          authorization:`Bearer ${tokenData?.token}`
         }
       );
 

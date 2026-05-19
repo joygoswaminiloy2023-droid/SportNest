@@ -12,6 +12,8 @@ import { authClient } from '@/lib/auth-client';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
+import logo from '@/assets/logo.png'
 
 const Signup = () => {
   const router = useRouter();
@@ -61,17 +63,32 @@ const Signup = () => {
         <div className="absolute -inset-px rounded-3xl bg-linear-to-r from-cyan-500/30 via-transparent to-blue-500/20 opacity-100" />
 
         <div className="relative bg-[#0E131F]/80 backdrop-blur-xl rounded-3xl border border-slate-800/60 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] px-6 py-10 sm:p-10 transition-all duration-500">
-          <div className="text-center mb-8">
-            <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-cyan-400 via-cyan-500 to-blue-600 flex items-center justify-center mx-auto shadow-xl shadow-cyan-500/20 mb-4 transform group-hover/card:scale-105 duration-500">
-              <HiOutlineUser className="text-black text-3xl" />
-            </div>
-            <h1 className="text-3xl font-black uppercase tracking-wider text-white">
-              Sport<span className="bg-linear-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Nest</span>
-            </h1>
-            <p className="text-slate-400 mt-2 text-xs font-semibold tracking-wide uppercase">
-              Join the Athlete Nest
-            </p>
-          </div>
+         
+
+  <div className="text-center flex flex-col items-center justify-center mb-8">
+
+    <Image
+      src={logo}
+      width={40}
+      height={40}
+      alt="logo"
+      className="mb-3"
+    />
+
+    <h1 className="text-3xl font-black uppercase tracking-wider text-white">
+      Sport
+      <span className="bg-linear-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+        Nest
+      </span>
+    </h1>
+
+    <p className="text-slate-400 mt-2 text-xs font-semibold tracking-wide uppercase">
+      Join the Athlete Nest
+    </p>
+
+  </div>
+
+
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-1.5">

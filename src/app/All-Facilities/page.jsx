@@ -1,13 +1,20 @@
 import React from 'react';
 import Allfacility from '../Components/Allfacility/Allfacility';
+import { authClient } from '@/lib/auth-client';
 
+const page = async () => {
+  const { data: tokenData } = await authClient.token();
 
-const page = async() => {
-      const res = await fetch('http://localhost:5000/facility', { cache: "no-cache" });
-    const data = await res.json();
+  const res = await fetch('http://localhost:5000/facility', {
+    cache: "no-cache",
+    headers: {
+      Authorization: `Bearer ${tokenData?.token}`,
+    },
+  });
 
-    return <Allfacility data={data} />;
-    
+  const data = await res.json();
+
+  return <Allfacility data={data} />;
 };
 
 export default page;

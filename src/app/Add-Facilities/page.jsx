@@ -18,11 +18,13 @@ const AddFacilities = () => {
     const facilityData = Object.fromEntries(data.entries());
 
     facilityData.ownerEmail = ownerEmail;
+     const{data: tokenData}=await authClient.token()
 
     const res = await fetch("http://localhost:5000/facility", {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        authorization:`Bearer ${tokenData?.token}`
       },
       body: JSON.stringify(facilityData)
     });
