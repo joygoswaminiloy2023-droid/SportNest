@@ -79,7 +79,7 @@ const Login = () => {
           {/* Logo */}
           <div className="text-center mb-10">
 
-            <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mx-auto shadow-xl shadow-cyan-500/20 mb-6">
+            <div className="w-20 h-20 rounded-3xl bg-linear-to-br from-cyan-400 to-blue-600 flex items-center justify-center mx-auto shadow-xl shadow-cyan-500/20 mb-6">
               <RiShieldKeyholeLine className="text-white text-4xl" />
             </div>
 

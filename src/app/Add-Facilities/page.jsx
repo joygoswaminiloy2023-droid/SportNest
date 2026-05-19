@@ -1,17 +1,9 @@
 'use client'
 
 import { authClient } from "@/lib/auth-client";
-import {
-  FieldError,
-  Input,
-  Label,
-  TextField,
-  Select,
-  ListBox,
-  TextArea,
-  Button,
-} from "@heroui/react";
+import { FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button} from "@heroui/react";
 import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 import { HiCheck, HiChevronDown } from "react-icons/hi";
 import { toast } from "react-toastify";
@@ -21,7 +13,7 @@ const addFacilities = () => {
 
 
 
-  const { data: session, isPending } = authClient.useSession();
+  const { data: session} = authClient.useSession();
   
   const ownerEmail = session?.user?.email || "owner@sportnest.com";
 
