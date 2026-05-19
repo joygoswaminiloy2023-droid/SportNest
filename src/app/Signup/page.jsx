@@ -50,109 +50,152 @@ const Signup = () => {
   };
 
   return (
-    <div className=" bg-[#0f1115] flex items-center justify-center p-6 selection:bg-cyan-500/30 relative overflow-hidden">
-      
-      {/* Background Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-900/20 blur-[120px] animate-pulse" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-900/20 blur-[120px]" />
+   <div className="min-h-screen w-full flex items-center justify-center bg-[#070A0F] p-4 md:p-8 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-cyan-950/20 via-[#090d14] to-[#040609] z-0" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29370a_1px,transparent_1px),linear-gradient(to_bottom,#1f29370a_1px,transparent_1px)] bg-size-[4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] z-0" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-125 h-125 rounded-full bg-cyan-500/10 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-150 h-150 rounded-full bg-blue-600/10 blur-[180px] pointer-events-none" />
 
-      <div className="w-full max-w-xl  relative">
-        {/* Card Border Gradient Effect */}
-        <div className="absolute -inset-0.5 bg-linear-to-r from-cyan-500 to-blue-600 rounded-[2.5rem] blur opacity-20" />
-        
-        <div className="bg-[#1a1d23]/80 backdrop-blur-2xl rounded-[2.5rem] shadow-2xl border border-white/5 p-10 relative">
-          
-          {/* Header */}
-          <div className="mb-10 text-center">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white mb-4 shadow-lg shadow-cyan-500/20">
-              <HiOutlineUser className="w-7 h-7" />
+      <div className="relative w-full max-w-115 z-10 group/card">
+        <div className="absolute -inset-px rounded-3xl bg-linear-to-r from-cyan-500 via-blue-500 to-emerald-500 opacity-20 blur-xl group-hover/card:opacity-40 group-hover/card:blur-2xl transition-all duration-700" />
+        <div className="absolute -inset-px rounded-3xl bg-linear-to-r from-cyan-500/30 via-transparent to-blue-500/20 opacity-100" />
+
+        <div className="relative bg-[#0E131F]/80 backdrop-blur-xl rounded-3xl border border-slate-800/60 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] px-6 py-10 sm:p-10 transition-all duration-500">
+          <div className="text-center mb-8">
+            <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-cyan-400 via-cyan-500 to-blue-600 flex items-center justify-center mx-auto shadow-xl shadow-cyan-500/20 mb-4 transform group-hover/card:scale-105 duration-500">
+              <HiOutlineUser className="text-black text-3xl" />
             </div>
-            <h1 className="text-3xl font-black text-white tracking-tight uppercase">
-              Sport<span className="text-cyan-500">Nest</span>
+            <h1 className="text-3xl font-black uppercase tracking-wider text-white">
+              Sport<span className="bg-linear-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Nest</span>
             </h1>
-            <p className="text-gray-400 mt-2 font-medium">Join us and start your journey today.</p>
+            <p className="text-slate-400 mt-2 text-xs font-semibold tracking-wide uppercase">
+              Join the Athlete Nest
+            </p>
           </div>
 
-          <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
-            {/* Full Name */}
-            <div className="group">
-              <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 ml-1">Full Name</label>
-              <div className="relative text-gray-400 group-focus-within:text-cyan-500">
-                <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors" />
-                <input 
-                  {...register("name", { required: true })}
-                  type="text" 
-                  placeholder="John Doe"
-                  className="w-full pl-12 pr-4 py-4 bg-[#0f1115]/50 border border-gray-800 rounded-2xl text-white placeholder:text-gray-600 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 outline-none transition-all"
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <div className="space-y-1.5">
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold ml-1">
+                Full Name
+              </label>
+              <div className="relative group/input">
+                <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/input:text-cyan-400 text-xl transition-all duration-300" />
+                <input
+                  type="text"
+                  placeholder="Niloy"
+                  {...register('name', { required: true })}
+                  className="w-full bg-[#070A0F]/90 text-sm text-slate-100 border border-slate-800/80 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 rounded-xl pl-12 pr-4 py-3.5 placeholder:text-slate-600 outline-none transition-all duration-300"
                 />
               </div>
+              {errors.name && (
+                <p className="text-red-400 text-[11px] font-medium mt-1 ml-1">Full name is required</p>
+              )}
             </div>
 
-            {/* Email */}
-            <div className="group">
-              <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 ml-1">Email Address</label>
-              <div className="relative text-gray-400 group-focus-within:text-cyan-500">
-                <HiOutlineMail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors" />
-                <input 
-                  {...register("email", { required: true })}
-                  type="email" 
-                  placeholder="name@example.com"
-                  className="w-full pl-12 pr-4 py-4 bg-[#0f1115]/50 border border-gray-800 rounded-2xl text-white placeholder:text-gray-600 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 outline-none transition-all"
+            <div className="space-y-1.5">
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold ml-1">
+                Email Address
+              </label>
+              <div className="relative group/input">
+                <HiOutlineMail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/input:text-cyan-400 text-xl transition-all duration-300" />
+                <input
+                  type="email"
+                  placeholder="Joy@somthing.com"
+                  {...register('email', { required: true })}
+                  className="w-full bg-[#070A0F]/90 text-sm text-slate-100 border border-slate-800/80 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 rounded-xl pl-12 pr-4 py-3.5 placeholder:text-slate-600 outline-none transition-all duration-300"
                 />
               </div>
+              {errors.email && (
+                <p className="text-red-400 text-[11px] font-medium mt-1 ml-1">Valid email address is required</p>
+              )}
             </div>
 
-            {/* Password */}
-            <div className="group">
-              <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 ml-1">Password</label>
-              <div className="relative text-gray-400 group-focus-within:text-cyan-500">
-                <RiLockPasswordLine className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors" />
-                <input 
-                  {...register("password", { required: true })}
-                  type="password" 
-                  placeholder="••••••••"
-                  className="w-full pl-12 pr-4 py-4 bg-[#0f1115]/50 border border-gray-800 rounded-2xl text-white placeholder:text-gray-600 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 outline-none transition-all"
-                />
+            <div className="space-y-1.5">
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold ml-1">
+                Secure Password
+              </label>
+              <div className="relative group/input">
+                <RiLockPasswordLine className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/input:text-cyan-400 text-xl transition-all duration-300" />
+              <input
+  type="password"
+  placeholder="••••••••"
+
+  {...register('password', {
+    required: "Password is required",
+
+    minLength: {
+      value: 6,
+      message: "Password must be at least 6 characters"
+    },
+
+    pattern: {
+      value: /^(?=.*[a-z])(?=.*[A-Z])/,
+      message: "Password must contain at least one uppercase and one lowercase letter"
+    }
+  })}
+
+  className="w-full bg-[#070A0F]/90 text-sm text-slate-100 border border-slate-800/80 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 rounded-xl pl-12 pr-4 py-3.5 placeholder:text-slate-600 outline-none transition-all duration-300"
+/>
               </div>
+              {errors.password && (
+                <p className="text-red-400 text-[11px] font-medium mt-1 ml-1">Password protection string is required</p>
+              )}
             </div>
 
-            {/* Image Link */}
-            <div className="group">
-              <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 ml-1">Profile Image URL</label>
-              <div className="relative text-gray-400 group-focus-within:text-cyan-500">
-                <HiOutlineLink className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors" />
-                <input 
-                  {...register("img", { required: true })}
-                  type="url" 
+            <div className="space-y-1.5">
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold ml-1">
+                Profile Image URL
+              </label>
+              <div className="relative group/input">
+                <HiOutlineLink className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/input:text-cyan-400 text-xl transition-all duration-300" />
+                <input
+                  type="url"
                   placeholder="https://images.com/avatar.jpg"
-                  className="w-full pl-12 pr-4 py-4 bg-[#0f1115]/50 border border-gray-800 rounded-2xl text-white placeholder:text-gray-600 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 outline-none transition-all"
+                  {...register('img', { required: true })}
+                  className="w-full bg-[#070A0F]/90 text-sm text-slate-100 border border-slate-800/80 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 rounded-xl pl-12 pr-4 py-3.5 placeholder:text-slate-600 outline-none transition-all duration-300"
                 />
               </div>
+              {errors.img && (
+                <p className="text-red-400 text-[11px] font-medium mt-1 ml-1">Profile link configuration path is required</p>
+              )}
             </div>
 
-            {/* Submit Button */}
-            <button type="submit" className="w-full mt-6 bg-cyan-500 hover:bg-cyan-400 active:scale-[0.97] text-black font-black uppercase tracking-widest py-4 rounded-2xl flex items-center justify-center gap-2 group transition-all shadow-xl shadow-cyan-500/20">
+            <button
+              type="submit"
+              className="w-full pt-2 bg-linear-to-r from-cyan-400 via-cyan-500 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-black font-black uppercase tracking-[0.15em] py-3.5 rounded-xl flex items-center justify-center gap-1 transition-all duration-300 transform active:scale-[0.99] shadow-lg shadow-cyan-500/10 group cursor-pointer text-xs"
+            >
               Create Account
-              <BsArrowRightShort className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              <BsArrowRightShort className="text-xl group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="relative my-8">
-            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-800"></div></div>
-            <div className="relative flex justify-center text-[10px] uppercase tracking-widest"><span className="bg-[#1a1d23] px-4 text-gray-500 font-bold">Or continue with</span></div>
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-slate-800/60" />
+            </div>
+            <div className="relative flex justify-center">
+              <span className="bg-[#101624] rounded-full border border-slate-800 px-4 py-0.5 text-[9px] uppercase tracking-[0.25em] text-slate-400 font-bold">
+                Alternative Gateways
+              </span>
+            </div>
           </div>
 
-          {/* Social Logins */}
-          <div className="grid grid-cols-1 gap-4">
-            <button onClick={handleGoogleSignIn} className="w-full flex items-center justify-center gap-3 py-4 px-4 rounded-2xl border border-gray-800 bg-[#0f1115]/50 hover:bg-gray-800 transition-all font-bold text-white text-sm group">
-              <FaGoogle className="w-4 h-4 text-white group-hover:text-cyan-500 transition-colors" /> <span>Google</span>
-            </button>
-          </div>
+          <button
+            onClick={handleGoogleSignIn}
+            className="w-full border border-slate-800/80 hover:border-slate-700 bg-[#070A0F]/40 hover:bg-[#0E131F] rounded-xl py-3.5 flex items-center justify-center gap-3 text-slate-200 text-sm font-semibold transition-all duration-300 group cursor-pointer"
+          >
+            <FaGoogle className="group-hover:text-cyan-400 text-xs transition-colors duration-300" />
+            Sign up with Google Profile
+          </button>
 
-          {/* Footer */}
-          <p className="text-center text-gray-500 text-sm mt-10 font-medium">
-            Already have an account? <Link href="Login" className="text-cyan-500 font-bold hover:text-cyan-400 transition-colors underline-offset-8 hover:underline">Sign in</Link>
+          <p className="text-center text-slate-400 text-xs mt-8">
+            Already have an account?{' '}
+            <Link
+              href="/Login"
+              className="text-cyan-400 font-black tracking-wide hover:text-cyan-300 hover:underline transition-all ml-1"
+            >
+              Sign In
+            </Link>
           </p>
         </div>
       </div>
