@@ -1,14 +1,18 @@
 import React from 'react';
 import Allfacility from '../Components/Allfacility/Allfacility';
-import { authClient } from '@/lib/auth-client';
+
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 const page = async () => {
-  const { data: tokenData } = await authClient.token();
+ const  {token}=await auth.api.getToken({
+     headers:await headers()
+ })
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/facility`, {
     cache: "no-cache",
     headers: {
-      Authorization: `Bearer ${tokenData?.token}`,
+     authorization: `Bearer ${token}`
     },
   });
 
