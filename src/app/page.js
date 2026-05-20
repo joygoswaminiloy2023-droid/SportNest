@@ -26,7 +26,7 @@ export default async function Home() {
       </div>
 
 <WhyChooseUs></WhyChooseUs>
-      <Foot></Foot>
+      
     </>
   );
 }
