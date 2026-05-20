@@ -6,7 +6,7 @@ SportNest - Sports Facility Booking Management System
 ---
 
 ## 🎯 Purpose
-SportNest is a modern sports facility booking frontend built using **Next.js + React**.  
+SportNest is a modern sports facility booking frontend built using **MERN Stack**.  
 It allows users to explore sports facilities, book slots, manage bookings, and handle authentication securely.
 
 ---
