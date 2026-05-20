@@ -11,11 +11,9 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      
-
       <div className="container mx-auto my-10">
         
-        <h1 className="text-2xl font-bold text-center lg:text-left ml-10 ">Featured Facilities</h1>
+        <h1 className="text-2xl font-bold text-center lg:text-left ml-0 md:ml-10 ">Featured Facilities</h1>
         
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
        
