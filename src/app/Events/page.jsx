@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCalendarClear } from "react-icons/io5";
 
@@ -50,9 +51,9 @@ const UpcomingEvents = () => {
                 <span>Dhaka Stadium</span>
               </div>
 
-              <button className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
+               <Link href="sdfsd" className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
                 Join Event
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -84,9 +85,9 @@ const UpcomingEvents = () => {
                 <span>Mirpur Sports Arena</span>
               </div>
 
-              <button className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
+                <Link href="sdfsd" className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
                 Join Event
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -118,9 +119,9 @@ const UpcomingEvents = () => {
                 <span>Banani Tennis Club</span>
               </div>
 
-              <button className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
+                <Link href="sdfsd" className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
                 Join Event
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -152,9 +153,9 @@ const UpcomingEvents = () => {
                 <span>Gulshan Aquatic Center</span>
               </div>
 
-              <button className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
+              <Link href="sdfsd" className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
                 Join Event
-              </button>
+              </Link>
             </div>
           </div>
         </div>
