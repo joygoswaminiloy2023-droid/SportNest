@@ -27,13 +27,15 @@ const UpcomingEvents = () => {
           <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/10 bg-white/5 backdrop-blur-lg hover:-translate-y-2 transition duration-500">
             <div className="relative h-64 overflow-hidden">
               <Image
+                width={400}
+              height={400}
                 src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop"
                 alt="Football Tournament"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
             </div>
 
             <div className="p-6">
@@ -51,9 +53,12 @@ const UpcomingEvents = () => {
                 <span>Dhaka Stadium</span>
               </div>
 
-               <Link href="sdfsd" className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
-                Join Event
-              </Link>
+               <Link
+  href="/all-facilities"
+  className="inline-flex items-center justify-center w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 active:scale-95 transition-all duration-300 text-black font-semibold shadow-lg shadow-cyan-500/30"
+>
+  Join Event
+</Link>
             </div>
           </div>
 
@@ -61,13 +66,15 @@ const UpcomingEvents = () => {
           <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/10 bg-white/5 backdrop-blur-lg hover:-translate-y-2 transition duration-500">
             <div className="relative h-64 overflow-hidden">
               <Image
+                width={400}
+              height={400}
                 src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1200&auto=format&fit=crop"
                 alt="Badminton Championship"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
             </div>
 
             <div className="p-6">
@@ -85,9 +92,12 @@ const UpcomingEvents = () => {
                 <span>Mirpur Sports Arena</span>
               </div>
 
-                <Link href="sdfsd" className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
-                Join Event
-              </Link>
+               <Link
+  href="/all-facilities"
+  className="inline-flex items-center justify-center w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 active:scale-95 transition-all duration-300 text-black font-semibold shadow-lg shadow-cyan-500/30"
+>
+  Join Event
+</Link>
             </div>
           </div>
 
@@ -95,13 +105,15 @@ const UpcomingEvents = () => {
           <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/10 bg-white/5 backdrop-blur-lg hover:-translate-y-2 transition duration-500">
             <div className="relative h-64 overflow-hidden">
               <Image
+              width={400}
+              height={400}
                 src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?q=80&w=1200&auto=format&fit=crop"
                 alt="Tennis League"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
             </div>
 
             <div className="p-6">
@@ -119,9 +131,12 @@ const UpcomingEvents = () => {
                 <span>Banani Tennis Club</span>
               </div>
 
-                <Link href="sdfsd" className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
-                Join Event
-              </Link>
+                <Link
+  href="/all-facilities"
+  className="inline-flex items-center justify-center w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 active:scale-95 transition-all duration-300 text-black font-semibold shadow-lg shadow-cyan-500/30"
+>
+  Join Event
+</Link>
             </div>
           </div>
 
@@ -129,13 +144,15 @@ const UpcomingEvents = () => {
           <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/10 bg-white/5 backdrop-blur-lg hover:-translate-y-2 transition duration-500">
             <div className="relative h-64 overflow-hidden">
               <Image
+                width={400}
+              height={400}
                 src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1200&auto=format&fit=crop"
                 alt="Swimming Competition"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
             </div>
 
             <div className="p-6">
@@ -153,9 +170,12 @@ const UpcomingEvents = () => {
                 <span>Gulshan Aquatic Center</span>
               </div>
 
-              <Link href="sdfsd" className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition-all duration-300 text-black font-semibold">
-                Join Event
-              </Link>
+             <Link
+  href="/all-facilities"
+  className="inline-flex items-center justify-center w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 active:scale-95 transition-all duration-300 text-black font-semibold shadow-lg shadow-cyan-500/30"
+>
+  Join Event
+</Link>
             </div>
           </div>
         </div>
