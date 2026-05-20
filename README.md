@@ -42,8 +42,7 @@ It allows users to explore sports facilities, book slots, manage bookings, and h
 - HeroUI
 - React Icons
 - React Toastify
-- Axios
-- Framer Motion (optional animations)
+- Framer Motion 
 
 ---
 
