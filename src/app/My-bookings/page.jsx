@@ -92,7 +92,7 @@ console.log(token)
                   border border-emerald-500/20
                 ">
                   <span className="w-2 h-2 mr-2 rounded-full bg-yellow-200 animate-pulse"></span>
-                  Pending
+                  {booking.status}
                 </span>
 
                 {/* TITLE */}

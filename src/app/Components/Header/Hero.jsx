@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import Lottie from "lottie-react";
-
+import {motion} from 'framer-motion'
 import hero from "../../../assets/Hero.png";
 import playerAnimation from "../../../../public/Soccer player kick on the ball.json";
 import Link from "next/link";
@@ -36,27 +36,66 @@ const Hero = () => {
      
       <div className="relative z-20 container  mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center px-6 lg:px-12">
 
-        <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
+      <motion.div
+  initial={{ opacity: 0, x: -80 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{
+    duration: 0.8,
+    ease: "easeOut",
+  }}
+  className="relative z-20 container mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center px-6 lg:px-12"
+>
+  <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
+    
+    <motion.h1
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.2,
+        duration: 0.7,
+      }}
+      className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight text-white"
+    >
+      Discover & Book <br />
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight text-white">
-            Discover & Book <br />
+      <span className="bg-linear-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">
+        Premium Sports
+      </span>
 
-            <span className="bg-linear-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">
-              Premium Sports
-            </span>
+      <br />
+      Spaces
+    </motion.h1>
 
-            <br />
-            Spaces
-          </h1>
+    <motion.p
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.4,
+        duration: 0.7,
+      }}
+      className="text-gray-300 max-w-md"
+    >
+      Explore premium sports facilities and experience next-gen booking
+      environments.
+    </motion.p>
 
-          <p className="text-gray-300 max-w-md">
-            Explore premium sports facilities and experience next-gen booking environments.
-          </p>
-
-          <Link href="All-Facilities" className="px-8 py-3 hover:scale-95 hover:bg-cyan-700 h-12 rounded-full bg-cyan-400 text-black font-bold hover:scale-105 transition">
-            Explore Facilities
-          </Link>
-        </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        delay: 0.6,
+        duration: 0.5,
+      }}
+    >
+      <Link
+        href="/All-Facilities"
+        className="inline-flex items-center justify-center px-8 py-3 h-12 rounded-full bg-cyan-400 text-black font-bold hover:bg-cyan-300 hover:scale-105 transition duration-300 shadow-lg shadow-cyan-500/30"
+      >
+        Explore Facilities
+      </Link>
+    </motion.div>
+  </div>
+</motion.div>
 
         <div className="lg:col-span-5 relative flex justify-center">
           <div className="relative w-[80%] aspect-4/3 rounded-2xl overflow-hidden  shadow-2xl transition-transform duration-500 ease-out hover:scale-[1.02] will-change-transform"
