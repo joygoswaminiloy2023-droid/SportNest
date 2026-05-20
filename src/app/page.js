@@ -3,6 +3,7 @@ import Hero from "./Components/Header/Hero";
 import Cardfacility from "./Components/Header/Card.jsx/Cardfacility";
 import Foot from "./Components/Footer/Foot";
 import WhyChooseUs from "./Components/Features/WhyChooseUs";
+import UpcomingEvents from "./Events/page";
 
 export default async function Home() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/facility`,{cache:"no-cache"});
@@ -24,6 +25,7 @@ export default async function Home() {
         ))}
       </div>
       </div>
+      <UpcomingEvents></UpcomingEvents>
 
 <WhyChooseUs></WhyChooseUs>
       
