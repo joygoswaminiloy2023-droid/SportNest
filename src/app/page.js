@@ -5,7 +5,7 @@ import Foot from "./Components/Footer/Foot";
 import WhyChooseUs from "./Components/Features/WhyChooseUs";
 
 export default async function Home() {
-  const res = await fetch('http://localhost:5000/facility',{cache:"no-cache"});
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/facility`,{cache:"no-cache"});
   const data = await res.json();
 
   return (

@@ -13,7 +13,7 @@ const BookingButtons = ({ booking }) => {
     const handlebooking_del = async () => {
         const{data: tokenData}=await authClient.token()
         try {
-            const res = await fetch(`http://localhost:5000/bookings/${booking._id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/bookings/${booking._id}`, {
                 method: "DELETE",
                 headers: {
                     'content-type': 'application/json',

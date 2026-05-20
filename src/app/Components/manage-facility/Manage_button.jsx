@@ -24,7 +24,7 @@ const handleDeleteClick = async () => {
      const{data: tokenData}=await authClient.token()
 
     const res = await fetch(
-      `http://localhost:5000/facility/${facility._id}`,
+      `${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/facility/${facility._id}`,
       {
         method: "DELETE",
         headers: {
@@ -55,7 +55,7 @@ const handleDeleteClick = async () => {
     
     try {
       const res = await fetch(
-        `http://localhost:5000/facility/${facility._id}`,
+        `${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/facility/${facility._id}`,
         {
           method: "PATCH",
           headers: {

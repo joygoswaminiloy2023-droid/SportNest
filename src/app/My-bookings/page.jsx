@@ -26,7 +26,7 @@ const  {token}=await auth.api.getToken({
 
 console.log(token)
   const res = await fetch(
-    `http://localhost:5000/bookings/${user.id}`,
+    `${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/bookings/${user.id}`,
     { cache: "no-store",
      headers: {
             authorization: `Bearer ${token}`

@@ -23,7 +23,7 @@ const MyFacilities = () => {
     const fetchFacilities = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/facility?ownerEmail=${encodeURIComponent(email)}`
+          `${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/facility?ownerEmail=${encodeURIComponent(email)}`
         );
 
         const data = await res.json();
@@ -42,7 +42,7 @@ const MyFacilities = () => {
       const{data: tokenData}=await authClient.token()
     try {
       const res = await fetch(
-        `http://localhost:5000/facility/${id}`,
+        `${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/facility/${id}`,
         {
           method: "DELETE",
           authorization:`Bearer ${tokenData?.token}`

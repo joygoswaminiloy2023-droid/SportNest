@@ -22,7 +22,7 @@ const Allfacility = () => {
 
   const fetchFacilities = async () => {
 
-    let url = `http://localhost:5000/facility?`;
+    let url = `${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/facility?`;
 
    
     if (search) {

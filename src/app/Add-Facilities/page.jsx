@@ -20,7 +20,7 @@ const AddFacilities = () => {
     facilityData.ownerEmail = ownerEmail;
      const{data: tokenData}=await authClient.token()
 
-    const res = await fetch("http://localhost:5000/facility", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/facility`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

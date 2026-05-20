@@ -77,7 +77,7 @@ user_email: user?.email,
     try {
        const{data: tokenData}=await authClient.token()
       const res = await fetch(
-        `http://localhost:5000/bookings`,
+        `${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/bookings`,
         {
           method: "POST",
           headers: {
