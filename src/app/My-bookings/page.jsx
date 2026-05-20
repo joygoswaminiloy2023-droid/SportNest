@@ -88,11 +88,11 @@ console.log(token)
                 {/* STATUS */}
                 <span className="
                   inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold
-                  bg-emerald-500/10 text-emerald-400
+                  bg-emerald-500/10 text-yellow-400
                   border border-emerald-500/20
                 ">
-                  <span className="w-2 h-2 mr-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  Confirmed
+                  <span className="w-2 h-2 mr-2 rounded-full bg-yellow-200 animate-pulse"></span>
+                  Pending
                 </span>
 
                 {/* TITLE */}
