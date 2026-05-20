@@ -75,12 +75,14 @@ user_email: user?.email,
     };
 
     try {
+       const{data: tokenData}=await authClient.token()
       const res = await fetch(
         `http://localhost:5000/bookings`,
         {
           method: "POST",
           headers: {
             "content-type": "application/json",
+           authorization:`Bearer ${tokenData?.token}`
           },
           body: JSON.stringify(bookingData),
         }
@@ -268,7 +270,7 @@ user_email: user?.email,
             {/* BUTTON */}
             <button
               type="submit"
-              className="w-full bg-emerald-500 text-black font-bold py-3 rounded-lg hover:bg-emerald-400 active:scale-[0.98] transition"
+              className="w-full cursor-pointer bg-emerald-500 text-black font-bold py-3 rounded-lg hover:bg-emerald-400 active:scale-[0.98] transition"
             >
               Confirm Booking
             </button>

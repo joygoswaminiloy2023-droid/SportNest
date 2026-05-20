@@ -5,6 +5,7 @@ import { AlertDialog, Button } from "@heroui/react";
 import { Edit, Trash2, X } from "lucide-react";
 import { FaTriangleExclamation } from "react-icons/fa6";
 import { toast } from "react-toastify";
+import { authClient } from "@/lib/auth-client";
 
 const Manage_button = ({ facility, onDelete, setFacilities }) => {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -20,15 +21,15 @@ const Manage_button = ({ facility, onDelete, setFacilities }) => {
 
 const handleDeleteClick = async () => {
   try {
-    const token = localStorage.getItem("token");
+     const{data: tokenData}=await authClient.token()
 
     const res = await fetch(
       `http://localhost:5000/facility/${facility._id}`,
       {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
+                    authorization:`Bearer ${tokenData?.token}`
+                },
       }
     );
 
@@ -50,7 +51,7 @@ const handleDeleteClick = async () => {
 };
   
   const handleUpdate = async () => {
-        const token = localStorage.getItem("token");
+       const{data: tokenData}=await authClient.token()
     
     try {
       const res = await fetch(
@@ -59,7 +60,7 @@ const handleDeleteClick = async () => {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
-             Authorization: `Bearer ${token}`,
+            authorization:`Bearer ${tokenData?.token}`
           },
           body: JSON.stringify(formData),
         }
@@ -95,7 +96,7 @@ const handleDeleteClick = async () => {
       <AlertDialog>
         <Button
           variant="light"
-          className="text-red-400 border border-red-950/40 hover:bg-red-950/30 font-medium px-4 py-2 rounded-xl flex gap-2"
+          className="text-red-400 border cursor-pointer border-red-950/40 hover:bg-red-950/30 font-medium px-4 py-2 rounded-xl flex gap-2"
         >
           <Trash2 size={16} />
           Delete
@@ -148,7 +149,7 @@ const handleDeleteClick = async () => {
 
       {/* EDIT BUTTON (UNCHANGED STYLE) */}
       <Button
-        className="flex gap-2 bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold px-5 py-2 rounded-xl"
+        className="flex gap-2 cursor-pointer bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold px-5 py-2 rounded-xl"
         onPress={() => setIsEditOpen(true)}
       >
         <Edit size={16} />

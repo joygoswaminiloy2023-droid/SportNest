@@ -39,7 +39,7 @@ const BookingButtons = ({ booking }) => {
                     {/* Trigger Button */}
                     <Button
                         variant="light"
-                        className="text-red-400 border border-red-950/40 hover:bg-red-950/30 font-medium px-4 py-2 rounded-xl flex gap-2"
+                        className="text-red-400 cursor-pointer border border-red-950/40 hover:bg-red-950/30 font-medium px-4 py-2 rounded-xl flex gap-2"
                     >
                         <Trash2 size={16} />
                         Cancel
