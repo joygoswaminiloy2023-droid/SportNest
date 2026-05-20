@@ -87,16 +87,7 @@ const Nav = () => {
 
         
         <div className="navbar-end gap-4">
-        <label className="swap swap-rotate btn btn-ghost btn-circle bg-slate-900/80 border border-gray-700 hover:border-cyan-500 transition-colors">
      
-      <input type="checkbox" className="theme-controller" value="light" />
-
-      {/* sun icon */}
-      <FiSun className="swap-on fill-current w-5 h-5 text-yellow-400" />
-
-    
-      <FiMoon className="swap-off fill-current w-5 h-5 text-cyan-400" />
-    </label>
 
           {isLoggedIn ? (
             <div className="dropdown dropdown-end">
