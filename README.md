@@ -18,22 +18,22 @@ SportNest is an enterprise-grade, high-performance web application designed for 
 ## 📸 Production UI Architecture
 
 ### 🏠 Hub & Discovery
-![Home Portal](./Home.png)
+![Home Portal](./UI/Home.png)
 
 ### 🔐 Identity & Authentication Gateways
 | Secure Sign In | Athlete Registration |
 | :---: | :---: |
-| ![Login Gate](./Login.png) | ![Signup Gate](./Signup.png) |
+| ![Login Gate](./UI/Login.png) | ![Signup Gate](./UI/Signup.png) |
 
 ### 📅 Booking Engine & Ledger
 | Marketplace (All Arenas) | Real-time Booking Status Ledger |
 | :---: | :---: |
-| ![Marketplace Grid](./All%20facility.png) | ![Booking Management](./My_Bookings.png) |
+| ![Marketplace Grid](./UI/All%20facility.png) | ![Booking Management](./UI/My_Bookings.png) |
 
 ### 🛠️ Vendor Operations Control Center
 | Inventory Analytics (My Listings) | Multi-Field Provisioning Form |
 | :---: | :---: |
-| ![Inventory Management](./Facility.png) | ![Add Arena Form](./Add.png) |
+| ![Inventory Management](./UI/Facility.png) | ![Add Arena Form](./UI/Add.png) |
 
 ---
 
